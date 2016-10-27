@@ -36,7 +36,7 @@ def register(tag, end_tag=None):
 
 # Decode unicode escape sequences in a string.
 def decode_escapes(s):
-    return bytes(s, 'utf-8').decode('unicode_escape')
+    return bytes(s).decode('unicode_escape')
 
 
 # --------------------------------------------------------------------------
