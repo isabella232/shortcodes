@@ -7,6 +7,7 @@
 
 import re
 import sys
+from future.utils import raise_from
 
 
 # Library version number.

@@ -29,8 +29,13 @@ Note that this package requires Python 3.
 import os
 import re
 import io
+from pip.download import PipSession
+from pip.req import parse_requirements
 
 from setuptools import setup
+
+install_reqs = parse_requirements('requirements.txt', session=PipSession())
+reqs = [str(ir.req) for ir in install_reqs]
 
 
 filepath = os.path.join(os.path.dirname(__file__), 'shortcodes.py')
@@ -50,6 +55,7 @@ setup(
         'A generic, customizable shortcode parser.'
     ),
     long_description = __doc__,
+    install_requires=reqs,
     classifiers = [
         'Programming Language :: Python :: 3',
         'Development Status :: 5 - Production/Stable',
