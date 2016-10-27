@@ -142,7 +142,7 @@ class AtomicShortcode(Shortcode):
             return str(self.func(context, None, self.pargs, self.kwargs))
         except Exception as ex:
             msg = "error rendering '%s' shortcode" % self.tag
-            raise RenderingError(msg) from ex
+            raise_from(RenderingError(msg), ex)
 
 
 # A block-scoped shortcode is a shortcode with a closing tag.
@@ -157,7 +157,7 @@ class BlockShortcode(Shortcode):
             return str(self.func(context, content, self.pargs, self.kwargs))
         except Exception as ex:
             msg = "error rendering '%s' shortcode" % self.tag
-            raise RenderingError(msg) from ex
+            raise_from(RenderingError(msg), ex)
 
 
 # --------------------------------------------------------------------------
